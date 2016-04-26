@@ -1,0 +1,26 @@
+"""Code to arrange the sentence in order of numbers in the words (Python 3)"""
+
+def order(sentence):
+	sp=sentence.split()
+	final=['','','','','','','','','']
+	print(final)
+	
+	for i in range(len(sp)):
+		for j in sp[i]:
+			if(j.isdigit()==True):
+				final[int(j)-1] = sp[i]
+	return (" ".join(final))
+	
+	
+ 
+
+
+order("g3ood 4of the2 pe6ople th5e Fo1r")
+
+
+""" Code by the top scorer:
+def order(sentence):
+    return " ".join(sorted(sentence.split(), key=lambda x: int(filter(str.isdigit, x))))
+
+
+"""
