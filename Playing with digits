@@ -12,24 +12,22 @@ If it is the case we will return k, if not return -1.
 
 Note: n, p will always be given as strictly positive integers."""
 
-def digit(num,k):
-	lp = int(str(num)[::-1])
+def dig_pow(num,k):
 	sum =0
-	i=k
-	while lp>0:
-		p=lp%10
-		lp=int(lp/10)
-		sum += p**i
-		i +=1
+	
+	for ch in str(num):
+		sum +=int(ch)**k
+		k+=1
+
 	flag=0
-	print(sum,num)
-	for j in range(10000):
+	for j in range(100000):
 		if(num*j == sum):
 			return j
 			flag =1
 			break
-	if(flag==0):
+	else:
 		return -1
 	
 
-print(digit(89,1))
+print(dig_pow(89,1))
+
