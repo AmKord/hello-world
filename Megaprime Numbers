@@ -1,0 +1,76 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class HelloWorld {
+    
+    public boolean isPrime(long num)
+    {   
+        long limit = (long)Math.sqrt(num);
+        if(num==1||num==0)
+            return false;
+        else if(num<10){
+            for(int i=2; i<num ;i++)
+            {
+                if (num % i ==0)
+                    return false;
+            }
+        }
+        else{
+            for(long i=3; i<=limit;i=i+2)
+            {
+                if (num % i ==0)
+                    return false;
+            }
+            
+        }
+    return true;
+    }
+    
+    public boolean get_digits(long num)
+    {
+        long digit;
+        while(num!=0){
+            digit = num%10;
+            num = num/10;
+            if(!(digit==2||digit==3 || digit==5||digit==7))
+                return false;
+        }
+        return true;
+	}
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long first = in.nextLong();
+        long last = in.nextLong();
+        int count=0;
+        HelloWorld c = new HelloWorld();
+        for(long i = first; i<=last; i++)
+        {
+            if(i==2||i==3||i==5)   
+                count++;
+            if(i%2!=0)
+            {
+                if(i%3!=0){
+                    if(i%5!=0){
+            
+            if(c.isPrime(i)){
+                if(i<10){
+                   // System.out.println(i);
+                    count++;
+                }
+                else if(c.get_digits(i)){
+                   //System.out.println(i);
+                    count++;
+                }                
+            }
+                }
+            }
+            }
+            
+        }
+        System.out.println(count);
+        // your code goes here
+    }
+}
